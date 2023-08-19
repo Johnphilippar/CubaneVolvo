@@ -1,6 +1,7 @@
 
 
 
+
 class LoginPage {
 
 
@@ -18,10 +19,6 @@ class LoginPage {
 
     get nextButtonPassword(){
         return $('//*[@id="passwordNext"]/div/button')
-    }
-
-    get loginMessage(){
-        return $('//*[@id="items"]')
     }
 
     async login(emailAddress,password){

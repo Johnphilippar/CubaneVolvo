@@ -1,4 +1,12 @@
-const LoginPage = require("../pages/login.page")
+// const { defaultDelay } = require("../util/utils")
+const clickAction = require('../../resources/pageObjectAction/clickAction')
+const detectLocatorAction = require('../../resources/pageObjectAction/detectLocatorAction')
+const inputAction = require('../../resources/pageObjectAction/inputAction')
+const loginPageObjectAction = require('../../resources/pageObjectAction/loginPageObjectAction')
+const scrollAction = require('../../resources/pageObjectAction/scrollAction')
+const utils = require("../util/utils")
+// const detectLocator = require('../../resources/pageObjectAction')
+// const elementVerifierAction = require('../../resources/pageObjectAction/elementVerifierAction')
 
 
 describe('Additional Feature' , () => {
@@ -8,14 +16,14 @@ describe('Additional Feature' , () => {
         try {
             
         await browser.url('https://www.youtube.com')
-        await browser.pause(2000)
         await browser.maximizeWindow()
+        await browser.pause(5000)
 
         await $('//*[@id="buttons"]/ytd-button-renderer').click()
-
-        await LoginPage.login('Dummyt3st4ccount@gmail.com','ph@ssw0rd123')
-        await LoginPage.checkMessage()
-
+        await loginPageObjectAction.login(utils.emailCredential,utils.passwordCredential)
+        // await elementVerifierAction.checkForElement('/html/body/ytd-app/div[1]/tp-yt-app-drawer/div[2]/div/div[2]/div[2]/ytd-guide-renderer/div[1]/ytd-guide-section-renderer[1]/div/ytd-guide-entry-renderer[3]/a/tp-yt-paper-item/yt-formatted-string')
+        // console.log('The checkmessage is working')
+        // browser.pause(utils.defaultDelay)
         } catch (err) {
             await browser.navigateTo('https://www.volvo.com')
             console.error('Encounter an error in the login ' +err)
@@ -25,34 +33,23 @@ describe('Additional Feature' , () => {
 
         try {
 
-            // const noButton = await $('//*[@id="dismiss-button"]/yt-button-renderer/yt-button-shape/button/yt-touch-feedback-shape/div/div[2]')
-
-            await $('[name="search_query"]').setValue('Volvo cars')
+            await inputAction.actInputSearchBar()
+            await clickAction.actSearchClick()
             await browser.pause(5000)
-            await $('//*[@id="search-icon-legacy"]').click()
-            await browser.pause(5000)
-            await $('/html/body/ytd-app/div[1]/ytd-page-manager/ytd-search/div[1]/ytd-two-column-search-results-renderer/div/ytd-section-list-renderer/div[2]/ytd-item-section-renderer/div[3]/ytd-shelf-renderer[1]/div[1]/div[2]/ytd-vertical-list-renderer').scrollIntoView({ behavior: "smooth"})
-            await browser.pause(3000)
-            
-            await $('/html/body/ytd-app/div[1]/ytd-page-manager/ytd-search/div[1]/ytd-two-column-search-results-renderer/div/ytd-section-list-renderer/div[2]/ytd-item-section-renderer/div[3]/ytd-shelf-renderer[1]/div[1]/div[2]/ytd-vertical-list-renderer/div[1]/ytd-video-renderer[2]/div[1]/ytd-thumbnail').click()
+            await scrollAction.actThumbnailScroll()
+            await clickAction.actVideoClick();
             await browser.pause(10000)
             await browser.keys('Space')
             await browser.pause(5000)
-            // if(noButton){
-            //     noButton.click()
-            // }
-            
-            // await $('//*[@id="movie_player"]/div[28]/div[2]/div[1]/button').click()
-            // await browser.pause(2000)
-            await $('//*[@id="owner"]').scrollIntoView()
+            await scrollAction.actUploaderScroll()
             await browser.pause(3000)
-            await $('/html/body/ytd-app/div[1]/ytd-page-manager/ytd-watch-flexy/div[5]/div[1]/div/div[2]/ytd-comments/ytd-item-section-renderer/div[1]/ytd-comments-header-renderer/div[5]/ytd-comment-simplebox-renderer/div[1]').click()
+            await clickAction.actCommentClick()
             await browser.pause(3000)
-            await $('/html/body/ytd-app/div[1]/ytd-page-manager/ytd-watch-flexy/div[5]/div[1]/div/div[2]/ytd-comments/ytd-item-section-renderer/div[1]/ytd-comments-header-renderer/div[5]/ytd-comment-simplebox-renderer/div[3]/ytd-comment-dialog-renderer/ytd-commentbox/div[2]/div/div[2]/tp-yt-paper-input-container/div[2]/div/div[1]/ytd-emoji-input/yt-user-mention-autosuggest-input/yt-formatted-string/div').setValue('Keep up the good work and enjoy it!')
+            await inputAction.actCommentInput()
             await browser.pause(3000)
-            await browser.keys('Enter')
+            await browser.keys('Space')
             await browser.pause(4000)
-            await $('//*[@id="avatar-btn"]').click()
+            await clickAction.actAvatarClick()
             await browser.pause(2000)
             await $('/html/body/ytd-app/ytd-popup-container/tp-yt-iron-dropdown/div/ytd-multi-page-menu-renderer/div[3]/div[1]/yt-multi-page-menu-section-renderer[1]/div[2]/ytd-compact-link-renderer[4]/a/tp-yt-paper-item').click()
             await browser.pause(5000)
