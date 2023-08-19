@@ -31,6 +31,27 @@ class clickObject{
         return $('//*[@id="docusaurus_skipToContent_fallback"]/div/main/div/div/div[2]/div/ul/li[2]/a')
     }
 
+    get objRunScriptClick(){
+        return $('//*[@id="docusaurus_skipToContent_fallback"]/div/main/div/div/div[2]/div/ul/li[4]/a')
+    }
+
+    get objSystemReqClick(){
+        return $('//*[@id="docusaurus_skipToContent_fallback"]/div/main/div/div/div[2]/div/ul/li[6]/a')
+    }
+
+    get objGetStartedClick(){
+        return $('//*[@id="__docusaurus"]/footer/div/div[1]/div[1]/ul/li[1]/a')
+    }
+
+    get objToggleNavBarClick(){
+        return $('/html/body/div/nav/div[1]/div[1]/button')
+    }
+
+    get objCoreConceptClick(){
+        return $('//*[@id="__docusaurus"]/nav/div[3]/div[2]/div[2]/ul/li[2]/div/a')
+    }
+
+
 }
 
 module.exports = new clickObject()

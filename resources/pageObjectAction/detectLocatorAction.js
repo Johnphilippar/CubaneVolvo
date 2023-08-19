@@ -12,6 +12,12 @@ class detectLocator {
 
     }
 
+    async actGoogleImageLocator(){
+        
+        await expect(detectLocatorObject).toHaveElementProperty('height',92)
+
+    }
+
     
     
 }

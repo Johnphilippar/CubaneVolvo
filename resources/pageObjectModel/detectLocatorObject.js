@@ -6,6 +6,10 @@ class detectLocatorObject {
         return $(locator)
     }
 
+    get objGoogleImageLocator(){
+        return $('/html/body/div[1]/div[2]/div/img')
+    }
+
 
     
 }

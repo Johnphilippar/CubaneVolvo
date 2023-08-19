@@ -9,12 +9,16 @@ describe('Testing 1' , () => {
 
             try {
 
-                browser.url('https://www.youtube.com')
+                browser.url('https://webdriver.io/docs/gettingstarted/')
                 await browser.pause(3000)
-                await detectLocatorAction.waitForElement('#search-icon-legacy','search-icon-legacy')
-                await browser.pause(3000)
-                await console.log('EXPECT IS WORKING')
-                
+
+                // await browser.newWindow('https://www.google.com')
+                // const googleLocator = await $('//*[@class="lnXdpd"]')
+                // await expect(googleLocator).toHaveElementProperty('height',92)
+                // await detectLocatorAction.actGoogleImageLocator()
+                // console.log('EXPECT IS WORKING')
+                // await browser.url('https://www.youtube.com')
+                // await browser.pause(3000)
 
             } catch (err) {
                 console.error(err)

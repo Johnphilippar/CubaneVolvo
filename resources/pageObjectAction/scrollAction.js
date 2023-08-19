@@ -10,6 +10,11 @@ class scrollAction {
     async actUploaderScroll(){
         await scrollObject.objUploaderScroll.scrollIntoView({ behavior: "smooth"})
     }
+    
+    async actFooterScroll(){
+        await scrollObject.objFooterScroll.scrollIntoView({ behavior: "smooth" })
+    }
+
 
 }
 

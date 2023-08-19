@@ -10,19 +10,27 @@ class utils {
     }
 
     get defaultDelay(){
-        return (3000)
+        return (1500)
     }
 
     get emailCredential(){
-        return ('Dummyt3st4ccount@gmail.com')
+        return ('Jpparhehe@gmail.com')
     }
 
     get passwordCredential(){
-        return ('ph@ssw0rd123')
+        return ('Parekoy.H<3')
     }
 
     get searchBarInput(){
         return ('Volvo cars')
+    }
+
+    get googleImage(){
+        return ('//*[@class="lnXdpd"]')
+    }
+
+    get googleLocatorClass(){
+        return ('height',92)
     }
 
     get youtubeComment(){

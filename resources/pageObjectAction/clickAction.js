@@ -27,15 +27,31 @@ class clickAction {
     }
     
     async actTopNotifClick(){
-
         await clickObject.objTopNotifClick.click()
-
     }
 
     async actCliManualClick(){
-
         await clickObject.objCliManualClick.click()
+    }
 
+    async actRunScriptClick(){
+        await clickObject.objRunScriptClick.click()
+    }
+
+    async actSystemReqClick(){
+        await clickObject.objSystemReqClick.click()
+    }
+
+    async actGetStartedClick(){
+        await clickObject.objGetStartedClick.click()
+    }
+
+    async actToggleNavBarClick(){
+        await clickObject.objToggleNavBarClick.click()
+    }
+
+    async actCoreConceptClick(){
+        await clickObject.objCoreConceptClick.click()
     }
 
 }

@@ -10,6 +10,14 @@ class scrollObject{
         return $('//*[@id="owner"]')
     }
 
+    get objFooterScroll(){
+        return $('//*[@id="__docusaurus"]/footer/div/div[1]/div[1]/div')
+    }
+
+    get objInitiateWdioScroll(){
+        return $('//*[@id="initiate-a-webdriverio-setup"]')
+    }
+
 }
 
 module.exports = new scrollObject()
