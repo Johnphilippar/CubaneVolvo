@@ -19,7 +19,7 @@ class scrollObject{
     }
 
     get objConfigurationScroll(){
-        return $('//*[@id="docusaurus_skipToContent_fallback"]/div/main/div/div/div/div/article/div[2]/p[17]')
+        return $('//*[@id="docusaurus_skipToContent_fallback"]/div/main/div/div/div/div/article/div[2]/p[18]')
     }
 
     get objCloseConfigurationScroll(){
@@ -28,6 +28,14 @@ class scrollObject{
 
     get objScrollIntoViewSearchScroll(){
         return $('//*[@id="docusaurus_skipToContent_fallback"]/div/main/div/div/div/div/article/div[2]/div[1]/div')
+    }
+
+    get objBaseOnWebStandarsScroll(){
+        return $('//*[@id="docusaurus_skipToContent_fallback"]/div/main/div/div/div[1]/div/article/div[2]/ul[2]/li[1]')
+    }
+
+    get objTrueOpenSourceScroll(){
+        return $('//*[@id="true-open-source"]')
     }
 
 }

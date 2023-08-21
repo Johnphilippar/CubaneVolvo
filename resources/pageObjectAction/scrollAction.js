@@ -27,6 +27,15 @@ class scrollAction {
         await scrollObject.objScrollIntoViewSearchScroll.scrollIntoView({ behavior: "smooth" })
     }
 
+    
+    async actBaseOnWebStandarsScroll(){
+        await scrollObject.objBaseOnWebStandarsScroll.scrollIntoView({ behavior: "smooth" })
+    }
+
+    async actTrueOpenSourceScroll(){
+        await scrollObject.objTrueOpenSourceScroll.scrollIntoView({ behavior: "smooth" })
+    }
+
   
 
 

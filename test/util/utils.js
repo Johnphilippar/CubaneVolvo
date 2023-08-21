@@ -10,7 +10,7 @@ class utils {
     }
 
     get defaultDelay(){
-        return (1500)
+        return (1000)
     }
 
     get emailCredential(){
@@ -54,7 +54,7 @@ class utils {
     }
     
     get searchValue(){
-        return ('scrollintoview')
+        return ('scrollIntoView')
     }
 
     get wdioNavBar(){

@@ -11,185 +11,192 @@ const expectObject = require('../../resources/pageObjectModel/expectElemName')
 const scrollAction = require('../../resources/pageObjectAction/scrollAction')
 const testing = require('./testing')
 const inputAction = require('../../resources/pageObjectAction/inputAction')
+const scrollObject = require('../../resources/pageObjectModel/scrollObject')
+const inputObject = require('../../resources/pageObjectModel/inputObject')
 
 
 describe('WebDriverIo Code Test' , () => {
+    it("VolvoCubao Code Test 1", async () => {
+
+        browser.url(utils.defaultPage);
+        browser.maximizeWindow();
     
-        it('VolvoCubao Code Test' , async () => {
-
-            try {
+        await waitForObject.getStarted.waitForDisplayed({
+          timeout: 5000,
+          timeoutMsg: "Timeout message is working",
+        });
+        console.log("Get started wait displayed is working.");
     
-                browser.url(utils.defaultPage)
-                browser.maximizeWindow()
-                await waitForObject.getStarted.waitForDisplayed({ 'timeout': 5000 , 'timeoutMsg': 'Timeout message is working' })
-                console.log('Get started wait displayed is working.')
-                await expect(browser).toHaveUrl('https://webdriver.io/docs/gettingstarted/')
-                console.log('Expect tohaveUrl is working.')
-                await clickAction.actTopNotifClick()
-                await browser.pause(utils.defaultDelay)
-                await buttonAction.actDarkModeButton()
-                await browser.pause(utils.defaultDelay)
-                await clickAction.actCliManualClick()
-                await expect(browser).toHaveUrl('https://webdriver.io/docs/gettingstarted/#install-cli-manually')
-                console.log('Expect CLI URL is working.')
-                await browser.pause(utils.defaultDelay)
-                const cliChecker = await $(checkerElementObject.cliElemObject)
-                await expect(cliChecker).toHaveId(expectObject.cliElemName)
-                console.log('the expect is working in CLI ELEMENT')
-                await browser.pause(utils.defaultDelay)
-                await clickAction.actRunScriptClick()
-                await clickObject.objRunScriptClick.waitForDisplayed({ 'timeout': 5000 , 'timeoutMsg': 'Timeout message is working' })
-                await browser.pause(utils.defaultDelay)
-                const systemReqChecker = await $(checkerElementObject.systemReqElemObject)
-                await expect(systemReqChecker).toHaveId(expectObject.systemReqElemName)
-                console.log('the expect is working SYSTEM REQ')
-                await browser.pause(utils.defaultDelay)
-                await scrollAction.actFooterScroll()
-                await browser.pause(utils.defaultDelay)
-                await clickAction.actGetStartedClick()
-                await browser.pause(utils.defaultDelay)
-                
-                
-            } catch (err) {
-                await browser.navigateTo('https://www.volvo.com')
-                console.error('Encounter an error ' +err)
-                await browser.closeWindow()
-                
-            }  
-   
-        })
-
-        it('WebdriverIO Toogle' , async () => {
-
-            try {
-
-            await browser.url('https://webdriver.io/docs/gettingstarted/')
-            await browser.pause(utils.defaultDelay)
-            await browser.setWindowSize(950, 1000)
-            await browser.pause(utils.defaultDelay)
-            await clickAction.actToggleNavBarClick()
-            await browser.pause(utils.defaultDelay)
-            await clickAction.actCoreConceptClick()
-            await browser.pause(utils.defaultDelay)
-            await clickAction.actCoreConceptClick()
-            await browser.pause(utils.defaultDelay)
-            await clickAction.actConfigurationClick()
-            await browser.pause(utils.defaultDelay)
-            await scrollAction.actConfigurationScroll()
-            await browser.pause(utils.defaultDelay)
-            await clickAction.actToggleNavBarClick()
-            await browser.pause(utils.defaultDelay)
-            await scrollAction.actCloseConfigurationScroll()
-            await browser.pause(utils.defaultDelay)
-
-            const toogleBar = await $$(utils.toogleBarObject)
-            console.log('total length of navbar ' + toogleBar.length)
-
-            for(let i=0;i<toogleBar.length;i++)
-            {
-                await toogleBar[i].click()
-                await browser.pause(1500)
-
-                if(await toogleBar[i].getText() != "Integration"){
-                    continue;
-                }
-
-                const endToogle = await $(utils.integrationToogleUCS)
-
-
-                if(endToogle != null)
-                {
-                    await endToogle.click()
-                    await browser.pause(2000)
-                    break
-                }  
-
-                await $(utils.uscTestingBotScroll).scrollIntoView({ behavior: "smooth"})
-                await browser.pause(2000)
-            }
-                
-            } catch (err) {
-                await browser.navigateTo('https://www.volvo.com')
-                console.error('Encounter an error ' +err)
-                await browser.closeWindow()
-            }
-
-        })
-
-        it('Search' , async () => {
-
-            try {
-                
-                await clickAction.actSearchClick()
-                await browser.pause(utils.defaultDelay)
-                await inputAction.actSearchInput()
-                await browser.pause(utils.defaultDelay)
-                await browser.keys("Enter")
-                await browser.pause(utils.defaultDelay)
-                await scrollAction.actScrollIntoViewScroll()
-                await browser.pause(utils.defaultDelay)
-                await clickAction.actToggleNavBarClick()
-                await browser.pause(2000)
-                await clickAction.actGetAttributeClick()
-                await browser.pause(utils.defaultDelay)
-                await clickAction.actToggleNavBarClick()
-                await browser.pause(1000)
-                await clickAction.actBackToMainMenuClick()
-                await browser.pause(1000)
-                await clickAction.actDocsClick()
-                await browser.pause(1000)
-
-            } catch (err) {
-                await browser.navigateTo('https://www.volvo.com')
-                console.error('Encounter an error ' +err)
-                await browser.closeWindow()
-            }
-        })
-
-        it('WebdriverIO Navbar Loop' , async () => {
-
-            try {
-                await browser.url(utils.defaultPage)
-                await browser.maximizeWindow()
-                const allLength = await $$(utils.wdioNavBar)
-                console.log('total length of navbar ' + allLength.length)
-                await browser.pause(2000)
-
-                
-            for(let i=0;i<allLength.length;i++)
-            {
-
-                console.log('Navbar of webdriverIO Documentation' , await allLength[i].getText())
-                await allLength[i].click()
-                await browser.pause(1000)
-                if(await allLength[i].getUrl() != "https://webdriver.io/docs/contribute"){
-                    continue;
-                }
-                if(await allLength[i].getText() == "Contribute"){
-                    await browser.pause(2000)
-                    break
-                }
-
-                await browser.navigateTo('https://www.google.com')
-                await browser.pause(2000)
-                await $('[name="q"]').setValue('Thank you so much')
-                await browser.pause(2000)
-                await $('[name="btnK"]').click()
-                await browser.pause(2000)
-                await browser.close()
-                
-            }
-                
-            } catch (err) {
-                
-                await browser.navigateTo('https://www.volvo.com')
-                console.error('Encounter an error ' +err)
-                await browser.closeWindow()
-                
-            }
-        })
+    
+        await expect(browser).toHaveUrl(
+          "https://webdriver.io/docs/gettingstarted/"
+        );
+        console.log("Expect tohaveUrl is working.");
+    
+        await clickAction.actTopNotifClick();
+        await browser.pause(utils.defaultDelay);
+        await buttonAction.actDarkModeButton();
+        await browser.pause(utils.defaultDelay);
+        await clickAction.actCliManualClick();
+    
+        await expect(browser).toHaveUrl(
+          "https://webdriver.io/docs/gettingstarted/#install-cli-manually"
+        );
+        console.log("Expect CLI URL is working.");
+    
+        await browser.pause(utils.defaultDelay);
+        const cliChecker = await $(checkerElementObject.cliElemObject);
+        await expect(cliChecker).toHaveId(expectObject.cliElemName);
+        console.log("the expect is working in CLI ELEMENT");
+    
+        await browser.pause(utils.defaultDelay);
+        await clickAction.actRunScriptClick();
+        await clickObject.objRunScriptClick.waitForDisplayed({
+          timeout: 5000,
+          timeoutMsg: "Timeout message is working",
+        });
+        await browser.pause(utils.defaultDelay);
+    
+        const systemReqChecker = await $(checkerElementObject.systemReqElemObject);
+        await expect(systemReqChecker).toHaveId(expectObject.systemReqElemName);
+        console.log("the expect is working SYSTEM REQ");
+    
+        await browser.pause(utils.defaultDelay);
+        await scrollAction.actFooterScroll();
+        await browser.pause(utils.defaultDelay);
+        await clickAction.actGetStartedClick();
+        await browser.pause(utils.defaultDelay);
+    
+        await clickAction.actLanguageDdClick()
+        await browser.pause(utils.defaultDelay);
+    
+        await clickAction.actCoreConceptsLanguageClick()
+        await browser.pause(utils.defaultDelay);
+    
+        await clickAction.actWhyWebDriverIoClick()
+        await browser.pause(utils.defaultDelay);
+    
+        await scrollAction.actBaseOnWebStandarsScroll()
+        await browser.pause(utils.defaultDelay);
         
+        await scrollAction.actTrueOpenSourceScroll()
+        await browser.pause(utils.defaultDelay);
     
+      });
     
-
+      it("WebdriverIO Toogle 1", async () => {
+        await browser.url("https://webdriver.io/docs/gettingstarted/");
+        await waitForObject.getStarted.waitForDisplayed({
+          timeout: 5000,
+          timeoutMsg: "Timeout message is working",
+        });
+        await browser.pause(utils.defaultDelay);
+        await browser.setWindowSize(950, 1000);
+        await clickAction.actToggleNavBarClick();
+        await clickAction.actCoreConceptClick();
+        await expect(clickObject.objCoreConceptClick).toHaveText("Core Concepts");
+        await clickAction.actCoreConceptClick();
+        await expect(clickObject.objCoreConceptClick).toHaveText("Core Concepts");
+        console.log("Expect toogle is working");
+        
+        await clickAction.actConfigurationClick();
+        await expect(clickObject.objConfigurationClick).toHaveUrl(
+          "https://webdriver.io/docs/configuration"
+        );
+        await clickObject.objConfigurationClick.waitForExist({ timeout: 5000 , timeoutMsg: 'The Configuration Did not work'})
+        console.log("Expect configuration is working");
+    
+        await scrollAction.actConfigurationScroll();
+        await expect(scrollObject.objConfigurationScroll).toHaveText(
+          "Next to the WebDriver based capabilities you can apply browser and vendor specific options that allow deeper configuration to the remote browser or device. These are documented in the corresponding vendor docs, e.g.:"
+        );
+        await clickAction.actToggleNavBarClick();
+        await scrollAction.actCloseConfigurationScroll();
+        await browser.pause(utils.defaultDelay);
+    
+        const toogleBar = await $$(utils.toogleBarObject);
+        console.log("total length of navbar " + toogleBar.length);
+    
+        for (let i = 0; i < toogleBar.length; i++) {
+          await toogleBar[i].click();
+          await browser.pause(1500);
+    
+          if ((await toogleBar[i].getText()) != "Integration") {
+            continue;
+          }
+    
+          const endToogle = await $(utils.integrationToogleUCS);
+    
+          if (endToogle != null) {
+            await endToogle.click();
+            await browser.pause(2000);
+            break;
+          }
+    
+          await $(utils.uscTestingBotScroll).scrollIntoView({ behavior: "smooth" });
+          await browser.pause(2000);
+        }
+      });
+    
+      it("Search 1", async () => {
+        await clickAction.actSearchClick();
+        await browser.pause(utils.defaultDelay);
+        await inputObject.objSearchInput.setValue("scrollIntoView");
+        await browser.pause(utils.defaultDelay);
+        await browser.keys("Enter");
+        await browser.pause(utils.defaultDelay);
+        await scrollAction.actScrollIntoViewScroll();
+        await expect(scrollObject.objScrollIntoViewSearchScroll).toHaveUrl(
+          "https://webdriver.io/docs/api/element/scrollIntoView/"
+        );
+        await browser.pause(utils.defaultDelay);
+        await clickAction.actToggleNavBarClick();
+        await browser.pause(utils.defaultDelay);
+        await clickAction.actGetAttributeClick();
+        await expect(clickObject.objGetAttributeClick).toHaveText("getAttribute");
+        await browser.pause(utils.defaultDelay);
+        await clickAction.actToggleNavBarClick();
+        await browser.pause(utils.defaultDelay);
+        await clickAction.actBackToMainMenuClick();
+        await browser.pause(utils.defaultDelay);
+        await clickAction.actDocsClick();
+        await expect(clickObject.objDocsClick).toHaveText("Docs");
+        await browser.pause(utils.defaultDelay);
+      });
+    
+      it("WebdriverIO Navbar Loop 1", async () => {
+        await browser.url(utils.defaultPage);
+        await browser.maximizeWindow();
+        let navBarItems = await $$(utils.wdioNavBar);
+        console.log("total length of navbar " + navBarItems.length);
+        await browser.pause(2000);
+    
+        for (let i = 0; i < navBarItems.length; i++) {
+          console.log(
+            "Navbar of webdriverIO Documentation",
+            await navBarItems[i].getText()
+          );
+          await navBarItems[i].click();
+          await browser.pause(1000);
+    
+          if(await navBarItems[i].getUrl() == "https://webdriver.io/docs/contribute"){
+            await browser.pause(2000);
+            break;
+          }
+    
+          navBarItems = await $$(utils.wdioNavBar);
+    
+        }
+    
+        await expect(browser).toHaveUrl("https://webdriver.io/docs/contribute");
+        console.log("EXPECT CONTRIBUTE WORKING");
+    
+        await browser.navigateTo("https://www.google.com");
+        await browser.pause(1000);
+        await $('[name="q"]').setValue("Thank you so much");
+        await browser.pause(1000);
+        await $('[name="btnK"]').click();
+        await browser.pause(1000);
+        await browser.closeWindow();
+      });
 })

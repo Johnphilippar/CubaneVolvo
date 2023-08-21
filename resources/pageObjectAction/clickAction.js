@@ -5,9 +5,7 @@ const clickObject = require('../pageObjectModel/clickObject')
 class clickAction {
 
     async actVideoClick(){
-
         await clickObject.objVideoClick.click()
-
     }
 
     async actSearchClick(){
@@ -31,7 +29,7 @@ class clickAction {
     }
 
     async actCliManualClick(){
-        await clickObject.objCliManualClick.click()
+        clickObject.objCliManualClick.click()
     }
 
     async actRunScriptClick(){
@@ -73,6 +71,23 @@ class clickAction {
     async actGetAttributeClick(){
         await clickObject.objGetAttributeClick.click()
     }
+
+    async actLanguageDdClick(){
+        await clickObject.objLanguageDdClick.click()
+    }
+
+    async actCoreConceptsLanguageClick(){
+        await clickObject.objCoreConceptLanguageClick.click()
+    }
+
+    async actWhyWebDriverIoClick(){
+        await clickObject.objWhyWebDriverIoClick.click()
+    }
+
+    async actTrueOpenSource(){
+        await clickObject.objTrueOpenSource.click()
+    }
+
 
 }
 
