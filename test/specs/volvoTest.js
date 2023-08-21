@@ -184,5 +184,8 @@ describe('WebDriverIo Code Test' , () => {
     
         await expect(browser).toHaveUrl("https://webdriver.io/docs/contribute");
 
+        await $('//*[@id="__docusaurus"]/nav/div[1]/div[2]/a[4]').click()
+        await browser.pause(utils.defaultDelay);
+
       });
 })
