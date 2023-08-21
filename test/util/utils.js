@@ -14,11 +14,11 @@ class utils {
     }
 
     get emailCredential(){
-        return ('Jpparhehe@gmail.com')
+        return ('Dummyt3st4ccount@gmail.com')
     }
 
     get passwordCredential(){
-        return ('Parekoy.H<3')
+        return ('ph@ss0w0rd123')
     }
 
     get searchBarInput(){

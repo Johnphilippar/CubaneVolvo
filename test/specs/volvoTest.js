@@ -9,7 +9,6 @@ const waitForObject = require('../../resources/pageObjectModel/waitForObject')
 const checkerElementObject = require('../../resources/pageObjectModel/checkerElementObject')
 const expectObject = require('../../resources/pageObjectModel/expectElemName')
 const scrollAction = require('../../resources/pageObjectAction/scrollAction')
-const testing = require('./testing')
 const inputAction = require('../../resources/pageObjectAction/inputAction')
 const scrollObject = require('../../resources/pageObjectModel/scrollObject')
 const inputObject = require('../../resources/pageObjectModel/inputObject')
@@ -25,7 +24,6 @@ describe('WebDriverIo Code Test' , () => {
           timeout: 5000,
           timeoutMsg: "Timeout message is working",
         });
-        console.log("Get started wait displayed is working.");
     
     
         await expect(browser).toHaveUrl(
@@ -42,12 +40,10 @@ describe('WebDriverIo Code Test' , () => {
         await expect(browser).toHaveUrl(
           "https://webdriver.io/docs/gettingstarted/#install-cli-manually"
         );
-        console.log("Expect CLI URL is working.");
     
         await browser.pause(utils.defaultDelay);
         const cliChecker = await $(checkerElementObject.cliElemObject);
         await expect(cliChecker).toHaveId(expectObject.cliElemName);
-        console.log("the expect is working in CLI ELEMENT");
     
         await browser.pause(utils.defaultDelay);
         await clickAction.actRunScriptClick();
@@ -59,7 +55,6 @@ describe('WebDriverIo Code Test' , () => {
     
         const systemReqChecker = await $(checkerElementObject.systemReqElemObject);
         await expect(systemReqChecker).toHaveId(expectObject.systemReqElemName);
-        console.log("the expect is working SYSTEM REQ");
     
         await browser.pause(utils.defaultDelay);
         await scrollAction.actFooterScroll();
@@ -93,29 +88,28 @@ describe('WebDriverIo Code Test' , () => {
         await browser.pause(utils.defaultDelay);
         await browser.setWindowSize(950, 1000);
         await clickAction.actToggleNavBarClick();
+        await browser.pause(utils.defaultDelay);
         await clickAction.actCoreConceptClick();
         await expect(clickObject.objCoreConceptClick).toHaveText("Core Concepts");
         await clickAction.actCoreConceptClick();
         await expect(clickObject.objCoreConceptClick).toHaveText("Core Concepts");
-        console.log("Expect toogle is working");
         
         await clickAction.actConfigurationClick();
         await expect(clickObject.objConfigurationClick).toHaveUrl(
           "https://webdriver.io/docs/configuration"
         );
         await clickObject.objConfigurationClick.waitForExist({ timeout: 5000 , timeoutMsg: 'The Configuration Did not work'})
-        console.log("Expect configuration is working");
     
         await scrollAction.actConfigurationScroll();
         await expect(scrollObject.objConfigurationScroll).toHaveText(
           "Next to the WebDriver based capabilities you can apply browser and vendor specific options that allow deeper configuration to the remote browser or device. These are documented in the corresponding vendor docs, e.g.:"
         );
         await clickAction.actToggleNavBarClick();
+        await browser.pause(utils.defaultDelay);
         await scrollAction.actCloseConfigurationScroll();
         await browser.pause(utils.defaultDelay);
     
         const toogleBar = await $$(utils.toogleBarObject);
-        console.log("total length of navbar " + toogleBar.length);
     
         for (let i = 0; i < toogleBar.length; i++) {
           await toogleBar[i].click();
@@ -152,15 +146,15 @@ describe('WebDriverIo Code Test' , () => {
         await browser.pause(utils.defaultDelay);
         await clickAction.actToggleNavBarClick();
         await browser.pause(utils.defaultDelay);
-        await clickAction.actGetAttributeClick();
         await expect(clickObject.objGetAttributeClick).toHaveText("getAttribute");
+        await clickAction.actGetAttributeClick();
         await browser.pause(utils.defaultDelay);
         await clickAction.actToggleNavBarClick();
         await browser.pause(utils.defaultDelay);
         await clickAction.actBackToMainMenuClick();
         await browser.pause(utils.defaultDelay);
-        await clickAction.actDocsClick();
         await expect(clickObject.objDocsClick).toHaveText("Docs");
+        await clickAction.actDocsClick();
         await browser.pause(utils.defaultDelay);
       });
     
@@ -189,14 +183,6 @@ describe('WebDriverIo Code Test' , () => {
         }
     
         await expect(browser).toHaveUrl("https://webdriver.io/docs/contribute");
-        console.log("EXPECT CONTRIBUTE WORKING");
-    
-        await browser.navigateTo("https://www.google.com");
-        await browser.pause(1000);
-        await $('[name="q"]').setValue("Thank you so much");
-        await browser.pause(1000);
-        await $('[name="btnK"]').click();
-        await browser.pause(1000);
-        await browser.closeWindow();
+
       });
 })
