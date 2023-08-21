@@ -14,6 +14,10 @@ class inputAction {
         await inputObject.objCommentInput.setValue(utils.youtubeComment)
     }
 
+    async actSearchInput(){
+        await inputObject.objSearchInput.setValue(utils.searchValue)
+    }
+
 
 }
 

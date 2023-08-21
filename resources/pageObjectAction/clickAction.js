@@ -53,6 +53,26 @@ class clickAction {
     async actCoreConceptClick(){
         await clickObject.objCoreConceptClick.click()
     }
+    
+    async actConfigurationClick(){
+        await clickObject.objConfigurationClick.click()
+    }
+
+    async actSearchClick(){
+        await clickObject.objSearchClick.click()
+    }
+
+    async actBackToMainMenuClick(){
+        await clickObject.objBackToMainMenuClick.click()
+    }
+
+    async actDocsClick(){
+        await clickObject.objDocsClick.click()
+    }
+
+    async actGetAttributeClick(){
+        await clickObject.objGetAttributeClick.click()
+    }
 
 }
 

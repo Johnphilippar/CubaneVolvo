@@ -51,6 +51,27 @@ class clickObject{
         return $('//*[@id="__docusaurus"]/nav/div[3]/div[2]/div[2]/ul/li[2]/div/a')
     }
 
+    get objConfigurationClick(){
+        return $('//*[@id="__docusaurus"]/nav/div[3]/div[2]/div[2]/ul/li[3]/div/a')
+    }
+
+    get objSearchClick(){
+        return $('//*[@aria-label="Search"]')
+    }
+
+    get objBackToMainMenuClick(){
+        return $('//*[@id="__docusaurus"]/nav/div[3]/div[2]/div[2]/button')
+    }
+
+    get objDocsClick(){
+        return $('//*[@id="__docusaurus"]/nav/div[3]/div[2]/div[1]/ul/li[1]/a')
+    }
+
+    get objGetAttributeClick(){
+        return $('//*[@id="__docusaurus"]/nav/div[3]/div[2]/div[2]/ul/li[4]/ul/li[10]/a')
+    }
+
+
 
 }
 
