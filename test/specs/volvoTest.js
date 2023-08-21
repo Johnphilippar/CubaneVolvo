@@ -15,7 +15,7 @@ const inputObject = require('../../resources/pageObjectModel/inputObject')
 
 
 describe('WebDriverIo Code Test' , () => {
-    it("VolvoCubao Code Test 1", async () => {
+      it("VolvoCubao Code Test 1", async () => {
 
         browser.url(utils.defaultPage);
         browser.maximizeWindow();
