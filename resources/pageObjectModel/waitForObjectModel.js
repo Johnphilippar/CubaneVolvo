@@ -1,11 +1,11 @@
 
 
-class waitForObject {
+class waitForObjectModel {
 
-    get getStarted(){
+    get getStartedModel(){
         return $('//*[@id="docusaurus_skipToContent_fallback"]/div/main/div/div/div[1]/div')
     }
 
 }
 
-module.exports = new waitForObject()
+module.exports = new waitForObjectModel()

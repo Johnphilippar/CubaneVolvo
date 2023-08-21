@@ -3,15 +3,15 @@
 
 const buttonAction = require('../../resources/pageObjectAction/buttonAction')
 const clickAction = require('../../resources/pageObjectAction/clickAction')
-const clickObject = require('../../resources/pageObjectModel/clickObject')
+const clickObjectModel = require('../../resources/pageObjectModel/clickObjectModel')
 const utils = require('../util/utils')
-const waitForObject = require('../../resources/pageObjectModel/waitForObject')
-const checkerElementObject = require('../../resources/pageObjectModel/checkerElementObject')
-const expectObject = require('../../resources/pageObjectModel/expectElemName')
+const waitForObjectModel = require('../../resources/pageObjectModel/waitForObjectModel')
+const checkerElementObjectModel = require('../../resources/pageObjectModel/checkerElementObjectModel')
+const expectObjectModel = require('../../resources/pageObjectModel/expectElemNameModel')
 const scrollAction = require('../../resources/pageObjectAction/scrollAction')
 const inputAction = require('../../resources/pageObjectAction/inputAction')
-const scrollObject = require('../../resources/pageObjectModel/scrollObject')
-const inputObject = require('../../resources/pageObjectModel/inputObject')
+const scrollObjectModel = require('../../resources/pageObjectModel/scrollObjectModel')
+const inputObjectModel = require('../../resources/pageObjectModel/inputObjectModel')
 
 
 describe('WebDriverIo Code Test' , () => {
@@ -20,7 +20,7 @@ describe('WebDriverIo Code Test' , () => {
         browser.url(utils.defaultPage);
         browser.maximizeWindow();
     
-        await waitForObject.getStarted.waitForDisplayed({
+        await waitForObjectModel.getStartedModel.waitForDisplayed({
           timeout: 5000,
           timeoutMsg: "Timeout message is working",
         });
@@ -42,19 +42,19 @@ describe('WebDriverIo Code Test' , () => {
         );
     
         await browser.pause(utils.defaultDelay);
-        const cliChecker = await $(checkerElementObject.cliElemObject);
-        await expect(cliChecker).toHaveId(expectObject.cliElemName);
+        const cliChecker = await $(checkerElementObjectModel.cliElemObjectModel);
+        await expect(cliChecker).toHaveId(expectObjectModel.cliElemNameModel);
     
         await browser.pause(utils.defaultDelay);
         await clickAction.actRunScriptClick();
-        await clickObject.objRunScriptClick.waitForDisplayed({
+        await clickObjectModel.objRunScriptClickModel.waitForDisplayed({
           timeout: 5000,
           timeoutMsg: "Timeout message is working",
         });
         await browser.pause(utils.defaultDelay);
     
-        const systemReqChecker = await $(checkerElementObject.systemReqElemObject);
-        await expect(systemReqChecker).toHaveId(expectObject.systemReqElemName);
+        const systemReqChecker = await $(checkerElementObjectModel.systemReqElemObjectModel);
+        await expect(systemReqChecker).toHaveId(expectObjectModel.systemReqElemNameModel);
     
         await browser.pause(utils.defaultDelay);
         await scrollAction.actFooterScroll();
@@ -81,7 +81,7 @@ describe('WebDriverIo Code Test' , () => {
     
       it("WebdriverIO Toogle 1", async () => {
         await browser.url("https://webdriver.io/docs/gettingstarted/");
-        await waitForObject.getStarted.waitForDisplayed({
+        await waitForObjectModel.getStartedModel.waitForDisplayed({
           timeout: 5000,
           timeoutMsg: "Timeout message is working",
         });
@@ -90,18 +90,18 @@ describe('WebDriverIo Code Test' , () => {
         await clickAction.actToggleNavBarClick();
         await browser.pause(utils.defaultDelay);
         await clickAction.actCoreConceptClick();
-        await expect(clickObject.objCoreConceptClick).toHaveText("Core Concepts");
+        await expect(clickObjectModel.objCoreConceptClickModel).toHaveText("Core Concepts");
         await clickAction.actCoreConceptClick();
-        await expect(clickObject.objCoreConceptClick).toHaveText("Core Concepts");
+        await expect(clickObjectModel.objCoreConceptClickModel).toHaveText("Core Concepts");
         
         await clickAction.actConfigurationClick();
-        await expect(clickObject.objConfigurationClick).toHaveUrl(
+        await expect(clickObjectModel.objConfigurationClickModel).toHaveUrl(
           "https://webdriver.io/docs/configuration"
         );
-        await clickObject.objConfigurationClick.waitForExist({ timeout: 5000 , timeoutMsg: 'The Configuration Did not work'})
+        await clickObjectModel.objConfigurationClickModel.waitForExist({ timeout: 5000 , timeoutMsg: 'The Configuration Did not work'})
     
         await scrollAction.actConfigurationScroll();
-        await expect(scrollObject.objConfigurationScroll).toHaveText(
+        await expect(scrollObjectModel.objConfigurationScrollModel).toHaveText(
           "Next to the WebDriver based capabilities you can apply browser and vendor specific options that allow deeper configuration to the remote browser or device. These are documented in the corresponding vendor docs, e.g.:"
         );
         await clickAction.actToggleNavBarClick();
@@ -135,25 +135,25 @@ describe('WebDriverIo Code Test' , () => {
       it("Search 1", async () => {
         await clickAction.actSearchClick();
         await browser.pause(utils.defaultDelay);
-        await inputObject.objSearchInput.setValue("scrollIntoView");
+        await inputObjectModel.objSearchInputModel.setValue("scrollIntoView");
         await browser.pause(utils.defaultDelay);
         await browser.keys("Enter");
         await browser.pause(utils.defaultDelay);
         await scrollAction.actScrollIntoViewScroll();
-        await expect(scrollObject.objScrollIntoViewSearchScroll).toHaveUrl(
+        await expect(scrollObjectModel.objScrollIntoViewSearchScrollModel).toHaveUrl(
           "https://webdriver.io/docs/api/element/scrollIntoView/"
         );
         await browser.pause(utils.defaultDelay);
         await clickAction.actToggleNavBarClick();
         await browser.pause(utils.defaultDelay);
-        await expect(clickObject.objGetAttributeClick).toHaveText("getAttribute");
+        await expect(clickObjectModel.objGetAttributeClickModel).toHaveText("getAttribute");
         await clickAction.actGetAttributeClick();
         await browser.pause(utils.defaultDelay);
         await clickAction.actToggleNavBarClick();
         await browser.pause(utils.defaultDelay);
         await clickAction.actBackToMainMenuClick();
         await browser.pause(utils.defaultDelay);
-        await expect(clickObject.objDocsClick).toHaveText("Docs");
+        await expect(clickObjectModel.objDocsClickModel).toHaveText("Docs");
         await clickAction.actDocsClick();
         await browser.pause(utils.defaultDelay);
       });

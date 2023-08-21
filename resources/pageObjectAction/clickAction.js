@@ -1,91 +1,87 @@
 
 
-const clickObject = require('../pageObjectModel/clickObject')
+const clickObjectModel = require('../pageObjectModel/clickObjectModel')
 
 class clickAction {
 
     async actVideoClick(){
-        await clickObject.objVideoClick.click()
+        await clickObjectModel.objVideoClickModel.click()
     }
 
     async actSearchClick(){
-        await clickObject.objSearchClick.click()
+        await clickObjectModel.objSearchClickModel.click()
     }
 
     async actCommentClick(){
-        await clickObject.objCommentClick.click()
+        await clickObjectModel.objCommentClickModel.click()
     }
 
     async actAvatarClick(){
-        await clickObject.objAvatarClick.click()
+        await clickObjectModel.objAvatarClickModel.click()
     }
 
     async actSignOutClick(){
-        await clickObject.objSignOutClick.click()
+        await clickObjectModel.objSignOutClickModel.click()
     }
     
     async actTopNotifClick(){
-        await clickObject.objTopNotifClick.click()
+        await clickObjectModel.objTopNotifClickModel.click()
     }
 
     async actCliManualClick(){
-        clickObject.objCliManualClick.click()
+        clickObjectModel.objCliManualClickModel.click()
     }
 
     async actRunScriptClick(){
-        await clickObject.objRunScriptClick.click()
+        await clickObjectModel.objRunScriptClickModel.click()
     }
 
     async actSystemReqClick(){
-        await clickObject.objSystemReqClick.click()
+        await clickObjectModel.objSystemReqClickModel.click()
     }
 
     async actGetStartedClick(){
-        await clickObject.objGetStartedClick.click()
+        await clickObjectModel.objGetStartedClickModel.click()
     }
 
     async actToggleNavBarClick(){
-        await clickObject.objToggleNavBarClick.click()
+        await clickObjectModel.objToggleNavBarClickModel.click()
     }
 
     async actCoreConceptClick(){
-        await clickObject.objCoreConceptClick.click()
+        await clickObjectModel.objCoreConceptClickModel.click()
     }
     
     async actConfigurationClick(){
-        await clickObject.objConfigurationClick.click()
+        await clickObjectModel.objConfigurationClickModel.click()
     }
 
     async actSearchClick(){
-        await clickObject.objSearchClick.click()
+        await clickObjectModel.objSearchClickModel.click()
     }
 
     async actBackToMainMenuClick(){
-        await clickObject.objBackToMainMenuClick.click()
+        await clickObjectModel.objBackToMainMenuClickModel.click()
     }
 
     async actDocsClick(){
-        await clickObject.objDocsClick.click()
+        await clickObjectModel.objDocsClickModel.click()
     }
 
     async actGetAttributeClick(){
-        await clickObject.objGetAttributeClick.click()
+        await clickObjectModel.objGetAttributeClickModel.click()
     }
 
     async actLanguageDdClick(){
-        await clickObject.objLanguageDdClick.click()
+        await clickObjectModel.objLanguageDdClickModel.click()
     }
 
     async actCoreConceptsLanguageClick(){
-        await clickObject.objCoreConceptLanguageClick.click()
+        await clickObjectModel.objCoreConceptLanguageClickModel.click()
     }
 
     async actWhyWebDriverIoClick(){
-        await clickObject.objWhyWebDriverIoClick.click()
-    }
-
-    async actTrueOpenSource(){
-        await clickObject.objTrueOpenSource.click()
+        await clickObjectModel.objWhyWebDriverIoClickModel.click()
     }
 
 

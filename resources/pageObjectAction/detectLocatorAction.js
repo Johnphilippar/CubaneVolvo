@@ -1,4 +1,4 @@
-const detectLocatorObject = require("../pageObjectModel/detectLocatorObject")
+const detectLocatorObjectModel = require("../pageObjectModel/detectLocatorObject")
 const utils = require('../../test/util/utils')
 
 
@@ -6,7 +6,7 @@ class detectLocator {
     
     async waitForElement(locator,text){
         
-        const targetPageLocator = await detectLocatorObject.pageLocator(locator)
+        const targetPageLocator = await detectLocatorObjectModel.pageLocator(locator)
 
         await expect(targetPageLocator).toHaveId(text)
 
@@ -14,7 +14,7 @@ class detectLocator {
 
     async actGoogleImageLocator(){
         
-        await expect(detectLocatorObject).toHaveElementProperty('height',92)
+        await expect(detectLocatorObjectModel).toHaveElementProperty('height',92)
 
     }
 

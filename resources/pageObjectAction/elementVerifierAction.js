@@ -1,13 +1,13 @@
 
 
-const elementVerifierObject = require('../pageObjectModel/elementVerifierObject')
+const elementVerifierObjectModel = require('../pageObjectModel/elementVerifierObject')
 
 
 
 class elementVerifierAction {
 
     async checkForElement(locator){
-        const targetPageElement = elementVerifierObject.pageElement(locator)
+        const targetPageElement = elementVerifierObjectModel.pageElement(locator)
         await expect(targetPageElement).toExist()
     }
 

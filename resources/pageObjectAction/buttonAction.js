@@ -1,12 +1,12 @@
 
-const buttonObject = require('../pageObjectModel/buttonObject')
+const buttonObjectModel = require('../pageObjectModel/buttonObjectModel')
 
 
 class buttonAction {
 
 
     async actDarkModeButton(){
-        buttonObject.objDarkModeButton.click()
+        buttonObjectModel.objDarkModeButtonModel.click()
     }
 
 }

@@ -1,39 +1,39 @@
 
-const scrollObject = require('../pageObjectModel/scrollObject')
+const scrollObjectModel = require('../pageObjectModel/scrollObjectModel')
 
 class scrollAction {
 
     async actThumbnailScroll() {
-        await scrollObject.objThumbnailScroll.scrollIntoView({ behavior: "smooth"})
+        await scrollObjectModel.objThumbnailScrollModel.scrollIntoView({ behavior: "smooth"})
     }
     
     async actUploaderScroll(){
-        await scrollObject.objUploaderScroll.scrollIntoView({ behavior: "smooth"})
+        await scrollObjectModel.objUploaderScrollModel.scrollIntoView({ behavior: "smooth"})
     }
     
     async actFooterScroll(){
-        await scrollObject.objFooterScroll.scrollIntoView({ behavior: "smooth" })
+        await scrollObjectModel.objFooterScrollModel.scrollIntoView({ behavior: "smooth" })
     }
     
     async actConfigurationScroll(){
-        await scrollObject.objConfigurationScroll.scrollIntoView({ behavior : "smooth" })
+        await scrollObjectModel.objConfigurationScrollModel.scrollIntoView({ behavior : "smooth" })
     }
     
     async actCloseConfigurationScroll(){
-        await scrollObject.objCloseConfigurationScroll.scrollIntoView({ behavior: "smooth" })
+        await scrollObjectModel.objCloseConfigurationScrollModel.scrollIntoView({ behavior: "smooth" })
     }
 
     async actScrollIntoViewScroll(){
-        await scrollObject.objScrollIntoViewSearchScroll.scrollIntoView({ behavior: "smooth" })
+        await scrollObjectModel.objScrollIntoViewSearchScrollModel.scrollIntoView({ behavior: "smooth" })
     }
 
     
     async actBaseOnWebStandarsScroll(){
-        await scrollObject.objBaseOnWebStandarsScroll.scrollIntoView({ behavior: "smooth" })
+        await scrollObjectModel.objBaseOnWebStandarsScrollModel.scrollIntoView({ behavior: "smooth" })
     }
 
     async actTrueOpenSourceScroll(){
-        await scrollObject.objTrueOpenSourceScroll.scrollIntoView({ behavior: "smooth" })
+        await scrollObjectModel.objTrueOpenSourceScrollModel.scrollIntoView({ behavior: "smooth" })
     }
 
   

@@ -1,24 +1,24 @@
 
 
-class loginPageObject {
+class loginPageObjectModel {
 
 
-    get emailInput(){
+    get emailInputModel(){
         return $('//*[@id="identifierId"]')
     }
 
-    get emailNextButton(){
+    get emailNextButtonModel(){
         return $('//*[@id="identifierNext"]/div/button')
     }
     
-    get passwordInput(){
+    get passwordInputModel(){
         return $('//*[@id="password"]/div[1]/div/div[1]/input')
     }
 
-    get passwordNextButton(){
+    get passwordNextButtonModel(){
         return $('//*[@id="passwordNext"]/div/button')
     }
 
 }
 
-module.exports = new loginPageObject()
+module.exports = new loginPageObjectModel()

@@ -1,21 +1,21 @@
 
 const utils = require('../../test/util/utils')
-const inputObject = require('../pageObjectModel/inputObject')
+const inputObjectModel = require('../pageObjectModel/inputObjectModel')
 
 
 
 class inputAction {
 
     async actInputSearchBar () {
-        await inputObject.objInputSearchBar.setValue(utils.searchBarInput)
+        await inputObjectModel.objInputSearchBarModel.setValue(utils.searchBarInput)
     }
 
     async actCommentInput(){
-        await inputObject.objCommentInput.setValue(utils.youtubeComment)
+        await inputObjectModel.objCommentInputrModel.setValue(utils.youtubeComment)
     }
 
     async actSearchInput(){
-        await inputObject.objSearchInput.setValue(utils.searchValue)
+        await inputObjectModel.objSearchInputrModel.setValue(utils.searchValue)
     }
 
 
